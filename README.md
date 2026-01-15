@@ -26,27 +26,43 @@ Developer Velocity: Faster iterations by managing the entire application lifecyc
 
 ## Scalability & AWS Extension
 
-### Docker: The system is designed with a "Cloud-Ready" mindset, making it easily extendable to Amazon Web Services (AWS):
-Compute: Transition from local Docker to AWS ECS (Elastic Container Service).
-Database: Replace local vector storage with Amazon OpenSearch or Pinecone for handling millions of documents.
+### Docker: 
+The system is designed with a "Cloud-Ready" mindset, making it easily extendable to Amazon Web Services (AWS):
+### Compute: Transition from local Docker to AWS ECS (Elastic Container Service).
+Database: 
+### Replace local vector storage with Amazon OpenSearch or Pinecone for handling millions of documents.
 
-### Storage: Swap the local data/uploads folder for an S3 Bucket with S3 Event Notifications to trigger indexing.
-API: Use AWS App Runner or Lambda to scale the backend based on demand.
+### Storage: 
+Swap the local data/uploads folder for an S3 Bucket with S3 Event Notifications to trigger indexing.
+### API: Use AWS App Runner or Lambda to scale the backend based on demand.
 
 ## Further Scope for Optimization
-### Hybrid Search: Combine semantic vector search with keyword-based (BM25) search for higher retrieval accuracy on technical jargon.
-### Streaming Responses: Implement Server-Sent Events (SSE) or WebSockets to stream LLM responses word-by-word, improving perceived latency.
-### Authentication & RBAC: Implement OAuth2 (Cognito/Auth0) to provide Role-Based Access Control, ensuring users only query documents they are authorized to see.
-Multi-Modal Ingestion: Expand processing to include Excel, Word, and Powerpoint files using libraries like unstructured or text image based pdf files using openAI CLIP embedding midel.
-Observability: Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval quality (faithfulness/relevance).
+### Hybrid Search
+Combine semantic vector search with keyword-based (BM25) search for higher retrieval accuracy on technical jargon.
+
+### Streaming Responses: 
+Implement Server-Sent Events (SSE) or WebSockets to stream LLM responses word-by-word, improving perceived latency.
+
+### Authentication & RBAC:
+Implement OAuth2 (Cognito/Auth0) to provide Role-Based Access Control, ensuring users only query documents they are authorized to see.
+
+### Multi-Modal Ingestion: 
+Expand processing to include Excel, Word, and Powerpoint files using libraries like unstructured or text image based pdf files using openAI CLIP embedding midel.
+
+### Observability: 
+Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval quality (faithfulness/relevance).
 
 ## Quick Start
 Place PDFs in nextbyte_ai_assistant/data/uploads.
-Build the image: docker build -t rag-unified .
+
+Build the image: 
+''' 
+docker build -t rag-unified .
+'''
 Run the container:
 bash
-docker run -p 8000:8000 -v ${PWD}/data/uploads:/app/data/uploads --env-file .env rag-unified
-Use code with caution.
+''' docker run -p 8000:8000 -v ${PWD}/data/uploads:/app/data/uploads --env-file .env rag-unified
+'''
 
-Click "Sync Local Data" on the dashboard.
+Click "Sync Local Data" on the dashboard to fetch latest files.
 
