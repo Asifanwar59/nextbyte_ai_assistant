@@ -5,7 +5,9 @@ Nextbyte AI Assistant is an enterprise-grade agent based RAG solution that enabl
 
 ## Key Features
 Local Data Sync: Automated scanning and indexing of PDFs from project-root/data/uploads, removing the need for manual browser-based uploads.
+
 Unified Full-Stack Architecture: A seamless integration of a FastAPI backend and a React/Tailwind CSS frontend for low-latency communication to use single docker build for both fastapi backend and frontend.
+
 RAG-Powered Conversations: Contextual answering using vector embeddings to retrieve relevant document segments.
 
 Real-time Sync: Background processing of documents to keep the AI's knowledge base updated without interrupting the user experience.
