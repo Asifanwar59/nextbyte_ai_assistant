@@ -1,11 +1,11 @@
 # Nextbyte AI Assistant
 
 ## Introduction 
-Nextbyte AI Assistant is an enterprise-grade RAG solution that enables users to query local PDF repositories using Large Language Models. Built with a unified architecture, it integrates robust safety guardrails and advanced orchestration to ensure reliable, context-aware interactions.
+Nextbyte AI Assistant is an enterprise-grade agent based RAG solution that enables users to query local PDF repositories using Large Language Models. Built with a unified architecture, it integrates robust safety guardrails and advanced orchestration/workflow to ensure reliable, context-aware interactions.
 
 ## Key Features
-Local Data Sync: Automated scanning and indexing of PDFs from data/uploads, removing the need for manual browser-based uploads.
-Unified Full-Stack Architecture: A seamless integration of a FastAPI backend and a React/Tailwind CSS frontend for low-latency communication.
+Local Data Sync: Automated scanning and indexing of PDFs from project-root/data/uploads, removing the need for manual browser-based uploads.
+Unified Full-Stack Architecture: A seamless integration of a FastAPI backend and a React/Tailwind CSS frontend for low-latency communication to use single docker build for both fastapi backend and frontend.
 RAG-Powered Conversations: Contextual answering using vector embeddings to retrieve relevant document segments.
 Real-time Sync: Background processing of documents to keep the AI's knowledge base updated without interrupting the user experience.
 Dockerized Environment: Fully containerized setup for consistent deployment across development and production environments.
@@ -21,20 +21,24 @@ Stateful Multi-Agent Flows: Uses LangGraph to manage complex conversation states
 Cyclic Logic: Enables the assistant to "self-correct" by re-searching if the initial retrieval does not adequately answer the user's query.
 
 ### Unified Backend & Frontend
-Single Source of Truth: Shared environment variables and API schemas reduce integration errors.
+Single Source of Truth: Shared environment variables and API schemas reduce integration errors. Single docker build for both fastapi backend and frontend.
+
 Developer Velocity: Faster iterations by managing the entire application lifecycle (from data ingestion to UI display) within a single repository.
 
 ## Scalability & AWS Extension
 
 ### Docker: 
-The system is designed with a "Cloud-Ready" mindset, making it easily extendable to Amazon Web Services (AWS):
-### Compute: Transition from local Docker to AWS ECS (Elastic Container Service).
-Database: 
-### Replace local vector storage with Amazon OpenSearch or Pinecone for handling millions of documents.
+The system is designed with a "Cloud-Ready" mindset, making it easily extendable to Amazon Web Services (AWS)
+Compute: Transition from local Docker to AWS ECS (Elastic Container Service).
+
+### Database: 
+Replace local vector storage with Amazon OpenSearch or Pinecone for handling millions of documents.
 
 ### Storage: 
 Swap the local data/uploads folder for an S3 Bucket with S3 Event Notifications to trigger indexing.
-### API: Use AWS App Runner or Lambda to scale the backend based on demand.
+
+### API: 
+Use AWS App Runner or Lambda to scale the backend based on demand.
 
 ## Further Scope for Optimization
 ### Hybrid Search
