@@ -60,6 +60,13 @@ Expand processing to include Excel, Word, and Powerpoint files using libraries l
 Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval quality (faithfulness/relevance).
 
 ## Quick Start
+
+### Clone and Environment setup
+''' git clone <repo-url>
+''' cd <repo-name>
+
+
+
 Place PDFs in nextbyte_ai_assistant/data/uploads.
 
 Build the image: 
