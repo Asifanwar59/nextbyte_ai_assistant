@@ -61,9 +61,20 @@ Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval
 
 ## Quick Start
 
-### Clone and Environment setup
+### Clone and .env
 ''' git clone <repo-url>
+
 ''' cd <repo-name>
+''' cp .env.example .env # Add your API keys
+
+### Docker ( Build and Launch):
+The application uses a multi-container architecture (App + Vector DB). Ensure you have Docker Desktop or Docker Engine installed.
+bash
+
+''' docker compose up --build
+
+
+
 
 
 
