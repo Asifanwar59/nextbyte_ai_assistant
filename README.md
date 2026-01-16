@@ -1,7 +1,7 @@
 # Nextbyte AI Assistant
 
 ## Introduction 
-Nextbyte AI Assistant is an enterprise-grade agent based RAG solution that enables users to query local PDF repositories using Large Language Models. Built with a unified architecture, it integrates robust safety guardrails and advanced orchestration/workflow to ensure reliable, context-aware interactions.
+Nextbyte AI Assistant is an agentic orchestration based RAG solution that enables users to query local PDF repositories using Large Language Models. Built with a unified architecture, it integrates robust safety guardrails and advanced orchestration/workflow to ensure reliable, context-aware interactions.
 
 ## Key Features
 Local Data Sync: Automated scanning and indexing of PDFs from project-root/data/uploads, removing the need for manual browser-based uploads.
