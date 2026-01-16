@@ -62,10 +62,12 @@ Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval
 ## Quick Start
 
 ### Clone and .env
-''' git clone <repo-url>
+bash
+git clone <repo-url>
 
-''' cd <repo-name>
-''' cp .env.example .env # Add your API keys
+cd <repo-name>
+
+cp .env.example .env # Add your API keys
 
 ### Docker ( Build and Launch):
 The application uses a multi-container architecture (App + Vector DB). Ensure you have Docker Desktop or Docker Engine installed.
@@ -74,17 +76,24 @@ The application uses a multi-container architecture (App + Vector DB). Ensure yo
 Place PDFs files in nextbyte_ai_assistant/data/uploads.
 
 Build the image: 
+
 bash
+
 docker build -t rag-unified .
 
 Run the container:
+
 bash
+
 docker run -p 8000:8000 -v ${PWD}/data/uploads:/app/data/uploads --env-file .env rag-unified
 
 
-Open http://localhost:8000 in your browser.
-You will see the UI.
-The UI will talk to the backend via http://localhost:8000/api/chat automatically.
+Open http://localhost:8000 in your browser. You will see the UI.
+
+The UI will talk to the backend via
+
+http://localhost:8000/api/chat automatically.
+
 API documentation remains available at http://localhost:8000/docs.
 
 Click "Sync Local Data" on the UI dashboard to fetch latest files.
