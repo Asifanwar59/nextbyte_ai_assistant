@@ -17,10 +17,12 @@ Dockerized Environment: Fully containerized setup for consistent deployment acro
 
 ### Advanced Guardrails
 Safety & Compliance: Implements input/output filtering to prevent the disclosure of PII (Personally Identifiable Information) and mitigate "jailbreaking" attempts.
+
 Hallucination Control: Restricts the LLM to provide answers based only on the provided documents, reducing the risk of misinformation.
 
 ### LangGraph Orchestration
 Stateful Multi-Agent Flows: Uses LangGraph to manage complex conversation states, allowing the system to handle multi-turn reasoning and iterative retrieval.
+
 Cyclic Logic: Enables the assistant to "self-correct" by re-searching if the initial retrieval does not adequately answer the user's query.
 
 ### Unified Backend & Frontend
@@ -32,29 +34,25 @@ Developer Velocity: Faster iterations by managing the entire application lifecyc
 
 ### Docker: 
 The system is designed with a "Cloud-Ready" mindset, making it easily extendable to Amazon Web Services (AWS)
+
 Compute: Transition from local Docker to AWS ECS (Elastic Container Service).
 
 ### Database: 
-Replace local vector storage with Amazon OpenSearch or Pinecone for handling millions of documents.
+Replace local vector storage with Amazon OpenSearch for handling millions of documents.
 
 ### Storage: 
 Swap the local data/uploads folder for an S3 Bucket with S3 Event Notifications to trigger indexing.
 
 ### API: 
-Use AWS App Runner or Lambda to scale the backend based on demand.
+Use AWS Lambda to scale the backend based on demand.
 
 ## Further Scope for Optimization
-### Hybrid Search
-Combine semantic vector search with keyword-based (BM25) search for higher retrieval accuracy on technical jargon.
-
-### Streaming Responses: 
-Implement Server-Sent Events (SSE) or WebSockets to stream LLM responses word-by-word, improving perceived latency.
 
 ### Authentication & RBAC:
-Implement OAuth2 (Cognito/Auth0) to provide Role-Based Access Control, ensuring users only query documents they are authorized to see.
+Implement OAuth2 to provide Role-Based Access Control, ensuring users only query documents they are authorized to see.
 
 ### Multi-Modal Ingestion: 
-Expand processing to include Excel, Word, and Powerpoint files using libraries like unstructured or text image based pdf files using openAI CLIP embedding midel.
+Expand processing to include Excel, Word, and Powerpoint files using libraries like unstructured or text,image based pdf files using openAI CLIP embedding midel.
 
 ### Observability: 
 Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval quality (faithfulness/relevance).
