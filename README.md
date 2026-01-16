@@ -74,13 +74,13 @@ The application uses a multi-container architecture (App + Vector DB). Ensure yo
 Place PDFs files in nextbyte_ai_assistant/data/uploads.
 
 Build the image: 
-''' 
+bash
 docker build -t rag-unified .
-'''
+
 Run the container:
 bash
-''' docker run -p 8000:8000 -v ${PWD}/data/uploads:/app/data/uploads --env-file .env rag-unified
-'''
+docker run -p 8000:8000 -v ${PWD}/data/uploads:/app/data/uploads --env-file .env rag-unified
+
 
 Open http://localhost:8000 in your browser.
 You will see the UI.
