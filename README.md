@@ -69,16 +69,9 @@ Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval
 
 ### Docker ( Build and Launch):
 The application uses a multi-container architecture (App + Vector DB). Ensure you have Docker Desktop or Docker Engine installed.
-bash
-
-''' docker compose up --build
 
 
-
-
-
-
-Place PDFs in nextbyte_ai_assistant/data/uploads.
+Place PDFs files in nextbyte_ai_assistant/data/uploads.
 
 Build the image: 
 ''' 
@@ -89,5 +82,10 @@ bash
 ''' docker run -p 8000:8000 -v ${PWD}/data/uploads:/app/data/uploads --env-file .env rag-unified
 '''
 
-Click "Sync Local Data" on the dashboard to fetch latest files.
+Open http://localhost:8000 in your browser.
+You will see the UI.
+The UI will talk to the backend via http://localhost:8000/api/chat automatically.
+API documentation remains available at http://localhost:8000/docs.
+
+Click "Sync Local Data" on the UI dashboard to fetch latest files.
 
