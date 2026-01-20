@@ -57,6 +57,9 @@ Expand processing to include Excel, Word, and Powerpoint files using libraries l
 ### Observability: 
 Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval quality (faithfulness/relevance).
 
+### Improve Hallucinations 
+Improve hallucination by adding one more layer of guardrail to include friction gate and discovery guard.
+
 ## Quick Start
 
 ### Clone and .env
