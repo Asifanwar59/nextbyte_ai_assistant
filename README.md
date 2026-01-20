@@ -59,6 +59,8 @@ Integrate LangSmith or AWS CloudWatch to track LLM costs, latency, and retrieval
 
 ### Improve Hallucinations 
 Improve hallucination by adding one more layer of guardrail to include friction gate and discovery guard.
+DiscoveryGuard ensures the agent has found the right information before it starts "thinking." 
+Friction Gates introduce "intentional friction" by requiring the agent to map its output to specific IDs in the source data. If it cannot, the gate rejects the response.
 
 ## Quick Start
 
