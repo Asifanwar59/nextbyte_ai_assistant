@@ -101,3 +101,72 @@ API documentation remains available at http://localhost:8000/docs.
 
 Click "Sync Local Data" on the UI dashboard to fetch latest files.
 
+## Directory structure
+
+nextbyte_ai_assistant /
+
+├── app/                        # Backend (FastAPI + LangGraph)
+
+│   ├── main.py                 # ASGI entry point & API endpoints
+
+│   ├── orchestrator.py         # Logic for 30-10-5 session cycling
+
+│   ├── services/
+
+│   │   ├── rag_engine.py       # Document indexing & retrieval logic
+
+│   │   ├── stt_service.py      # Speech-to-Text (Mic processing)
+
+│   │   ├── video_service.py    # Logic for fetching/generating lesson videos
+
+│   │   └── guardrails.py       # Input/Output safety filtering
+
+│   ├── utils/
+
+│   │   └── excel_parser.py     # Timetable/Portion reading logic
+
+│   └── models/                 # Database/Pydantic schemas
+
+├── data/
+
+│   ├── uploads/                # Local PDF repository (Sync target)
+
+│   ├── timetable/              # Excel sheets (.xlsx) for portions
+
+│   └── videos/                 # Generated 30-min lesson video files
+
+├── frontend/                   # Frontend (React + Tailwind)
+
+│   ├── src/
+
+│   │   ├── components/
+
+│   │   │   ├── VideoPlayer.js  # Main lesson streaming window
+
+│   │   │   ├── MicControl.js   # Classroom mic interaction
+
+│   │   │   ├── ChatWindow.js   # Q&A display history
+
+│   │   │   └── PhaseTimer.js   # 30-10-5 countdown timer
+
+│   │   ├── services/
+
+│   │   │   └── api.js          # Unified API caller
+
+│   │   └── App.js              # Classroom Dashboard Layout
+
+│   └── public/                 # Static assets
+
+├── docker/                     # Deployment configurations
+
+│   ├── Dockerfile              # Unified build (Nginx + Uvicorn)
+
+│   └── docker-compose.yml      # Orchestration (App + Vector DB)
+
+├── .env                        # API Keys (OpenAI, AWS, etc.)
+
+├── requirements.txt            # Python dependencies
+
+└── README.md                   # Documentation
+
+![img.png](img.png)
