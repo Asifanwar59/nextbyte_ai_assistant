@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const API_BASE_URL = window.location.origin; // Dynamically uses the current URL
+
 const apiClient = axios.create({
   // Use /api prefix to match the FastAPI mount point
   baseURL: '/api',
@@ -15,12 +17,15 @@ export const uploadPDF = (file) => {
   });
 };
 
-export const sendChatMessage = (message) => {
+
+//export const sendChatMessage = (message) => {
   // Sending as a query parameter to match your FastAPI chat endpoint
-  return apiClient.post(`/chat?query=${encodeURIComponent(message)}`);
+//  return apiClient.post(`/chat?query=${encodeURIComponent(message)}`);
+//};
+
+export const sendChatMessage = async (query) => {
+    return axios.post(`${API_BASE_URL}/api/chat`, { query });
 };
-
-
 
 
 

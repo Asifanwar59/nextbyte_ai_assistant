@@ -88,7 +88,12 @@ Run the container:
 
 bash
 
-docker run -p 8000:8000 -v ${PWD}/data/uploads:/app/data/uploads --env-file .env rag-unified
+docker run -p 8000:8000 `
+  -v "${PWD}/data/uploads:/app/data/uploads" `
+  -v "${PWD}/data/videos:/app/data/videos" `
+  --env-file .env `
+  rag-unified
+
 
 
 Open http://localhost:8000 in your browser. You will see the UI.

@@ -11,7 +11,12 @@ function App() {
   const handleSyncData = async () => {
     setIsSyncing(true);
     try {
-      const response = await fetch('http://localhost:8000/sync-data', { method: 'POST' });
+      //const response = await fetch('http://localhost:8000/sync-data', { method: 'POST' });
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: input }) // Key must match ChatRequest model
+      });
       if (response.ok) alert("Started indexing local PDFs!");
     } catch (error) {
       console.error("Sync failed", error);
@@ -33,9 +38,15 @@ function App() {
       // 2. Call Backend API
       const response = await sendChatMessage(input);
 
+      // DEBUG: Log the full response to see the keys
+      console.log("Full Backend Response:", response.data);
+
+      // Ensure the key (e.g., .answer) matches your FastAPI 'return' statement
+      const botAnswer = response.data.answer || response.data.response || "Key mismatch: check backend return key";
+
       // 3. Extract the answer (ensure this matches your FastAPI response keys)
       // If your backend returns { "answer": "..." }, use response.data.answer
-      const botAnswer = response.data.answer || response.data.response || "No response received.";
+      // const botAnswer = response.data.answer || response.data.response || "No response received.";
 
       // 4. Update UI with LLM response
       setMessages(prev => [...prev, { role: 'assistant', content: botAnswer }]);
