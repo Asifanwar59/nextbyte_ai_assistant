@@ -169,4 +169,4 @@ nextbyte_ai_assistant /
 
 └── README.md                   # Documentation
 
-![img.png](img.png)
+![folder_structure.png](folder_structure.png)
