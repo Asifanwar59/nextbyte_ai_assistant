@@ -1,0 +1,33 @@
+{
+    "name": "Nextbyte AI Classroom",
+    "image": "://mcr.microsoft.com",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/node:20": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            }
+        }
+    },
+    "forwardPorts": [8000],
+    "portsAttributes": {
+        "8000": {
+            "label": "Nextbyte AI Assistant",
+            "onAutoForward": "openBrowser"
+        }
+    },
+    "postCreateCommand": "pip install -r requirements.txt && cd frontend && npm install",
+    "remoteUser": "vscode"
+}
