@@ -82,3 +82,4 @@ zstandard==0.25.0
 fastapi
 uvicorn
 python-multipart
+boto3
